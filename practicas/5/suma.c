@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-
+ 
 int main(){
     char c;
     unsigned total = 0;

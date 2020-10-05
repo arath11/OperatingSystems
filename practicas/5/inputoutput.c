@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
-
+ 
 
 int main(){
     //leemos una entrada del teclado 

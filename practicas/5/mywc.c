@@ -39,4 +39,4 @@ int main(){
     printf("%u\n",palabras);
     printf("%u\n",caracteres);
     return 0;
-}
+} 
