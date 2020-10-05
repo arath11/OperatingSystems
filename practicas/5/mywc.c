@@ -5,38 +5,38 @@
 
 int main(){
     char c;
-    unsigned total = 0;
-    unsigned linea = 0;
-    unsigned palabra = 0;
+    unsigned lineas =0;
+    unsigned palabras =0;
     unsigned caracteres = 0;
-    unsigned i=0;
     char buffer[250];
+    unsigned i =0;
+
     //palabra  linea y caracteres 
     //linea++;
     while(read(STDIN_FILENO,&c,1)!=0){
         //cuando es diferente a salto de linea o salto de pagina 
-        if(c != ' ' && c != '\n'){
-            buffer[i++] = c;
-            caracteres++;            
-        }else if(c == '\n'){
-            linea++;
+        i++;
+        buffer[i] = c;
+        if (c!='\n'){
             caracteres++;
-
-            //palabra++;
-        }else{
-            caracteres++;
-            palabra++;
-            buffer[i]='\0';   
         }
+        if(c==' '){
+            if (buffer[i-1]!='\n' && buffer[i-1]!=' ' && i>1){
+                palabras ++;
+            }  
+        } 
+        else if (c=='\n'){
+            lineas ++;
+            if (buffer[i-1]!=' ' && i>1){
+                palabras++;
+            }
+            i=0;
+        }  
     }
-    buffer[i]='\0';
-    
-    
-    
-    printf("%u\n",linea);
-    printf("%u\n",palabra);
+    //buffer[i]='\0';
+    caracteres=caracteres+lineas;
+    printf("%u\n",lineas);
+    printf("%u\n",palabras);
     printf("%u\n",caracteres);
-        //write(STDOUT_FILENO, &c,1);
     return 0;
-//    printf("El contenido es: %s\n",name);
 }
