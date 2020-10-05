@@ -4,7 +4,8 @@
 
 
 int main(){
-    char c;
+    
+char c;
     unsigned lineas =0;
     unsigned palabras =0;
     unsigned caracteres = 0;
@@ -39,4 +40,5 @@ int main(){
     printf("%u\n",palabras);
     printf("%u\n",caracteres);
     return 0;
+
 } 
