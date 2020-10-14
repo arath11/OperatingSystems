@@ -40,5 +40,5 @@ char c;
     printf("%u\n",palabras);
     printf("%u\n",caracteres);
     return 0;
-
+                   
 } 

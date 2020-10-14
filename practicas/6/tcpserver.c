@@ -16,7 +16,7 @@ int main(){
     bind(sockfd,&serverAddress,sizeof(serverAddress));
     listen(sockfd, 0);
     while(1){
-        struct sockaddr_in clientAddress;
+          struct sockaddr_in clientAddress;
         int clientSize = sizeof(clientAddress);
         int clientSocket = accept(sockfd,&clientAddress, &clientSize);
         char c;
