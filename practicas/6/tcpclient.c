@@ -5,6 +5,10 @@
 #include <unistd.h>
 #include <string.h>
 
+
+#include <stdlib.h>
+
+
 extern int h_errno;
 //void bzero(void *s, size_t n);
 
@@ -18,7 +22,10 @@ int main(int argc, char**argv){
     bzero(&serverAddress, sizeof(serverAddress));
 
     serverAddress.sin_family = AF_INET;
-    serverAddress.sin_port = htons(2727);
+	/*char  ahhh='56985';
+	int  a=atoi(ahhh);*/
+	//printf(argv[2]);
+    serverAddress.sin_port = htons(atoi(argv[2]));
     //serverAddress.sin_addr = serverInfo->h_addr_list[0]; //no se puede
 
     bcopy((char *)serverInfo->h_addr,
@@ -28,11 +35,18 @@ int main(int argc, char**argv){
     if (connect(sockfd,&serverAddress,sizeof(serverAddress)) < 0){
         printf("Error \n");
     }
-    char *message = "GET / HTTP/1.0\r\n\r\n";
-    write(sockfd, message,strlen(message));
-    while(read(sockfd,&c,1)){
-        printf("%c",c);
-    }
+    
+//	while(read(sockfd,&c,1)){
+  //      printf("%c",c);
+   // }
+	
+    char *message = argv[3];
+	write(sockfd, message,strlen(message));
+	char *arroba="@";
+	write(sockfd, arroba,strlen(arroba));
+	
+	//nombree
+
     close(sockfd);
     printf("\n");
 
